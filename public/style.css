@@ -1,0 +1,395 @@
+/* Genel ayarlar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: "Segoe UI", sans-serif;
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  /*overflow-x: hidden;*/
+}
+
+.hero {
+  background-image: url("/images/header.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 400px;
+  color: white;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 5%;
+  overflow: hidden;
+}
+
+/* GÖLGE: Koyu overlay katmanı */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Yarı saydam koyu katman */
+  z-index: 1;
+}
+
+/* Yazı içeriği görünür üst katmanda */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.hero-content p {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+/* Menü */
+
+.navbar {
+  position: absolute;
+  top: 20px;
+  right: 50px;
+  z-index: 3;
+}
+
+.navbar a {
+  color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.navbar a.active {
+  color: #ffd700;
+  border-bottom: 2px solid #ffd700;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar a:hover {
+  color: #ffd700;
+}
+
+/* Hero başlık */
+.hero-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-content h1 span {
+  color: #add8e6;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  max-width: 500px;
+  margin-bottom: 2rem;
+}
+
+.btn {
+  display: inline-block;
+  background: #007bff;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Kategoriler */
+.categories {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 60px 5%;
+  background: #f9f9f9;
+  text-align: center;
+}
+
+.category {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.category img {
+  width: 100%;
+  border-radius: 50%;
+  height: auto;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.category img.round {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.category h3 {
+  margin-top: 15px;
+  font-size: 1.2rem;
+}
+.contact {
+  background: #fff;
+  padding: 60px 5%;
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+.contact p {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.contact form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact input,
+.contact textarea {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.contact input:focus,
+.contact textarea:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+.contact button.btn {
+  align-self: center;
+  width: 50%;
+}
+
+/*Maldives*/
+.maldives {
+  background-image: url("images/maldives-header.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  padding: 0 2rem;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+.detail-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: sans-serif;
+}
+.detail-page img {
+  width: 100%;
+  border-radius: 12px;
+}
+.detail-page h1 {
+  margin-top: 1.5rem;
+  font-size: 2rem;
+}
+.detail-page p {
+  margin: 1rem 0;
+  line-height: 1.6;
+}
+.detail-page .price {
+  font-weight: bold;
+  color: #2c3e50;
+}
+.btn {
+  display: inline-block;
+  background: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+/*Salda*/
+.salda {
+  background-image: url("images/salda-header.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  padding: 0 2rem;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/*Alps*/
+.alps {
+  background-image: url("images/alps-header.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  padding: 0 2rem;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/*book.html*/
+.book {
+  margin: 20px 10px;
+}
+.form-row {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.form-row label {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+input[type="date"] {
+  padding: 6px 8px;
+  font-size: 14px;
+  width: 150px;
+}
+
+input[type="text"] {
+  padding: 7px 8px;
+  font-size: 14px;
+  width: 150px;
+}
+
+.people {
+  padding: 7px 8px;
+  font-size: 14px;
+  width: 150px;
+}
+
+.room_count {
+  padding: 7px 8px;
+  font-size: 14px;
+  width: 150px;
+}
+
+button[type="submit"] {
+  padding: 10px 30px;
+  font-size: 14px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: sticky;
+  margin-top: 20px;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Mobil ekranlar için responsive ayarlar */
+@media (max-width: 768px) {
+  .hero {
+    padding: 0 2rem;
+    text-align: center;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .navbar {
+    top: 10px;
+    right: 10px;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .categories {
+    flex-direction: column;
+    padding: 30px 5%;
+    gap: 30px;
+  }
+
+  .category {
+    max-width: 100%;
+  }
+
+  .category img {
+    width: 80%;
+  }
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="navbar">
+        <ul>
+          <li><a href="/index.html">About</a></li>
+          <li><a href="/destination.html">Destinations</a></li>
+          <li><a href="/tours.html">Tours</a></li>
+          <li><a href="/contact.html" class="active">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="hero-content">
+        <h1>Contact Us</h1>
+        <p>We'd love to hear from you. Send us a message below.</p>
+      </div>
+    </header>
+
+    <section class="contact">
+      <form action="/mesaj" id="contact-form" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="text" name="surname" placeholder="Your Surmame" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+    </section>
+    <section class="map-container">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12036.588986994114!2d28.9795308!3d41.0151376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab9aa5385c0cf%3A0xd373db738dfdf82a!2sSultanahmet%2C%20Istanbul!5e0!3m2!1sen!2str!4v1718298400059!5m2!1sen!2str"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </section>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("contact-form");
+
+        form.addEventListener("submit", async function (e) {
+          e.preventDefault();
+
+          const name = form.name.value;
+          const surname = form.surname.value;
+          const email = form.email.value;
+          const message = form.message.value;
+
+          try {
+            const response = await fetch("/mesaj", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ name, surname, email, message }),
+            });
+
+            const result = await response.text();
+            alert(`Thank you, ${name}! Your message has been received.`);
+            form.reset();
+          } catch (error) {
+            alert("Mesaj gönderilirken hata oluştu.");
+            console(err);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
