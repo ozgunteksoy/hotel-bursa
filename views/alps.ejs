@@ -4,19 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Swiss Alps Tour</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
-    <header class="alps">
-      <nav class="navbar">
-        <ul>
-          <li><a href="/index.html">About</a></li>
-          <li><a href="/destination.html">Destinations</a></li>
-          <li><a href="/tours.html">Tours</a></li>
-          <li><a href="/contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
+    <%- include("partials/header", { headerClass:"alps", activePage:"alps",
+    showTitle:true }) %>
     <section class="detail-page">
       <img src="/images/alps.png" alt="Swiss Alps" />
       <h1>Swiss Alps Adventure Tour</h1>
@@ -30,7 +22,7 @@
         guided mountain tours.
       </p>
       <p class="price">Starting from $1,299 per person</p>
-      <a href="/book.html" class="btn">Book Now</a>
+      <a href="/book" class="btn">Book Now</a>
     </section>
   </body>
 </html>

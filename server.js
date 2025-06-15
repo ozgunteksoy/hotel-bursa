@@ -4,10 +4,13 @@ const path = require("path");
 const app = express();
 const PORT = 5500;
 
+// EJS ayarları
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
+
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, "public")));
 
 // MSSQL bağlantı ayarları
 const config = {
@@ -33,6 +36,53 @@ sql
   .catch((err) => {
     console.error("❌ Veritabanı bağlantı hatası:", err);
   });
+
+app.get("/", (req, res) => {
+  res.render("index", { headerClass: "hero", activePage: "index" });
+});
+
+app.get("/tours", (req, res) => {
+  res.render("tours", { headerClass: "hero", activePage: "tours" });
+});
+
+app.get("/destination", (req, res) => {
+  res.render("destination", { headerClass: "hero" });
+});
+
+app.get("/maldives", (req, res) => {
+  res.render("maldives", {
+    headerClass: "maldives",
+    activePage: "",
+    showTitle: true,
+  });
+});
+
+app.get("/salda", (req, res) => {
+  res.render("salda", {
+    headerClass: "salda",
+    activePage: "",
+    showTitle: true,
+  });
+});
+
+app.get("/alps", (req, res) => {
+  res.render("alps", {
+    headerClass: "alps",
+    activePage: "",
+    showTitle: true,
+    pageTitle: "Alps",
+  });
+});
+
+app.get("/contact", (req, res) => {
+  res.render("contact", { headerClass: "hero", activePage: "contact" });
+});
+
+app.get("/book", (req, res) => {
+  res.render("book", { headerClass: "book" });
+});
+
+app.use(express.static(path.join(__dirname, "public")));
 
 // ✉️ Mesaj gönderme
 app.post("/mesaj", async (req, res) => {

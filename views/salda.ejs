@@ -8,16 +8,8 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header class="salda">
-      <nav class="navbar">
-        <ul>
-          <li><a href="/index.html">About</a></li>
-          <li><a href="/destination.html">Destinations</a></li>
-          <li><a href="/tours.html">Tours</a></li>
-          <li><a href="/contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
+    <%- include("partials/header", { headerClass:"salda", activePage:"salda",
+    showTitle:true }) %>
     <section class="detail-page">
       <img src="/images/salda.png" alt="Salda Lake" />
       <h1>Salda Lake Nature Retreat</h1>

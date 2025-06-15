@@ -1,0 +1,30 @@
+<header class="<%= typeof headerClass !== 'undefined' ? headerClass : '' %>">
+  <nav class="navbar">
+    <ul>
+      <li>
+        <a href="/" class="<%= activePage === 'about' ? 'active' : '' %>"
+          >About</a
+        >
+      </li>
+      <li>
+        <a
+          href="/destination"
+          class="<%= activePage === 'destinations' ? 'active' : '' %>"
+          >Destinations</a
+        >
+      </li>
+      <li>
+        <a href="/tours" class="<%= activePage === 'tours' ? 'active' : '' %>"
+          >Tours</a
+        >
+      </li>
+      <li>
+        <a
+          href="/contact"
+          class="<%= activePage === 'contact' ? 'active' : '' %>"
+          >Contact</a
+        >
+      </li>
+    </ul>
+  </nav>
+</header>

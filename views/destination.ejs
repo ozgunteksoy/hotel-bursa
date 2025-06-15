@@ -7,20 +7,13 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header class="hero">
-      <nav class="navbar">
-        <ul>
-          <li><a href="/index.html">About</a></li>
-          <li><a href="/destination.html" class="active">Destinations</a></li>
-          <li><a href="/tours.html">Tours</a></li>
-          <li><a href="/contact.html">Contact</a></li>
-        </ul>
-      </nav>
-      <div class="hero-content">
-        <h1>Top Destinations</h1>
-        <p>Discover the most popular travel destinations around the globe.</p>
-      </div>
-    </header>
+    <%- include("partials/header", { headerClass: "hero", activePage:
+    "destination", showTitle: true, pageTitle: "Discover Your Next Destination"
+    }) %>
+    <div class="hero-content">
+      <h1>Top Destinations</h1>
+      <p>Discover the most popular travel destinations around the globe.</p>
+    </div>
 
     <section class="categories">
       <div class="category round">
@@ -32,7 +25,7 @@
             beach escape.
           </p>
           <p><strong>From $1,499</strong></p>
-          <a href="/maldives.html" class="btn">View Details</a>
+          <a href="/maldives" class="btn">View Details</a>
         </div>
       </div>
 
@@ -45,7 +38,7 @@
             Broadway shows.
           </p>
           <p><strong>From $899</strong></p>
-          <a href="/salda.html" class="btn">View Details</a>
+          <a href="/salda" class="btn">View Details</a>
         </div>
       </div>
 
@@ -58,7 +51,7 @@
             Alps.
           </p>
           <p><strong>From $1,299</strong></p>
-          <a href="/alps.html" class="btn">View Details</a>
+          <a href="/alps" class="btn">View Details</a>
         </div>
       </div>
     </section>

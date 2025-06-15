@@ -7,20 +7,12 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header class="hero">
-      <nav class="navbar">
-        <ul>
-          <li><a href="/index.html">About</a></li>
-          <li><a href="/destination.html">Destinations</a></li>
-          <li><a href="/tours.html">Tours</a></li>
-          <li><a href="/contact.html" class="active">Contact</a></li>
-        </ul>
-      </nav>
-      <div class="hero-content">
-        <h1>Contact Us</h1>
-        <p>We'd love to hear from you. Send us a message below.</p>
-      </div>
-    </header>
+    <%- include("partials/header", {headerClass:"hero", activePage:"contact",
+    showTitle:true }) %>
+    <div class="hero-content">
+      <h1>Contact Us</h1>
+      <p>We'd love to hear from you. Send us a message below.</p>
+    </div>
 
     <section class="contact">
       <form action="/mesaj" id="contact-form" method="POST">
