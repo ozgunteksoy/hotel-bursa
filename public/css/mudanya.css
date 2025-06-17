@@ -1,0 +1,147 @@
+.text {
+  max-width: 600px;
+}
+
+/*ALTINKUM*/
+.altinkum {
+  display: flex;
+  gap: 20px;
+  margin: 20px;
+}
+
+.altinkum img {
+  width: 300px;
+  border-radius: 10px;
+}
+
+.altinkum ul {
+  padding-left: 20px;
+}
+
+/*GÜZELYALI*/
+.guzelyali {
+  display: flex;
+  gap: 20px;
+  margin: 20px;
+}
+
+.guzelyali img {
+  width: 300px;
+  border-radius: 10px;
+}
+
+.guzelyali ul {
+  padding-left: 20px;
+}
+
+/*KUMYAKA*/
+.kumyaka {
+  display: flex;
+  gap: 20px;
+  margin: 20px;
+}
+
+.kumyaka img {
+  width: 300px;
+  border-radius: 10px;
+}
+
+.kumyaka ul {
+  padding-left: 20px;
+}
+
+/*EĞERCE*/
+.egerce {
+  display: flex;
+  gap: 20px;
+  margin: 20px;
+}
+
+.egerce img {
+  width: 300px;
+  border-radius: 10px;
+}
+
+.egerce ul {
+  padding-left: 20px;
+}
+
+/*MESUDİYE*/
+.mesudiye {
+  display: flex;
+  gap: 20px;
+  margin: 20px;
+}
+
+.mesudiye img {
+  width: 300px;
+  border-radius: 10px;
+}
+
+.mesudiye ul {
+  padding-left: 20px;
+}
+
+/*COŞKUNÖZ*/
+.coskunöz {
+  display: flex;
+  gap: 20px;
+  margin: 20px;
+}
+
+.coskunöz img {
+  width: 300px;
+  border-radius: 10px;
+}
+
+.coskunöz ul {
+  padding-left: 20px;
+}
+
+/*ZEYTİNBAĞI*/
+.zeytinbagi {
+  display: flex;
+  gap: 20px;
+  margin: 20px;
+}
+
+.zeytinbagi img {
+  width: 300px;
+  border-radius: 10px;
+}
+
+.zeytinbagi ul {
+  padding-left: 20px;
+}
+
+/*EŞKEL*/
+.eskel {
+  display: flex;
+  gap: 20px;
+  margin: 20px;
+}
+
+.eskel img {
+  width: 300px;
+  border-radius: 10px;
+}
+
+.eskel ul {
+  padding-left: 20px;
+}
+
+/*KIZILAY*/
+.kizilay {
+  display: flex;
+  gap: 20px;
+  margin: 20px;
+}
+
+.kizilay img {
+  width: 300px;
+  border-radius: 10px;
+}
+
+.kizilay ul {
+  padding-left: 20px;
+}

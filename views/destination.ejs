@@ -4,55 +4,38 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Destinations</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
     <%- include("partials/header", { headerClass: "hero", activePage:
-    "destination", showTitle: true, pageTitle: "Discover Your Next Destination"
+    "Destination", showTitle: true, pageTitle: "Discover Your Next Destination"
     }) %>
     <div class="hero-content">
-      <h1>Top Destinations</h1>
+      <h1>Top <span>Destinations</span></h1>
       <p>Discover the most popular travel destinations around the globe.</p>
     </div>
 
     <section class="categories">
-      <div class="category round">
-        <img src="/images/maldives.png" alt="Maldives" />
-        <div class="destination-info">
-          <h3>Maldives</h3>
-          <p>
-            Relax in the turquoise waters of the Maldives with our all-inclusive
-            beach escape.
-          </p>
-          <p><strong>From $1,499</strong></p>
-          <a href="/maldives" class="btn">View Details</a>
-        </div>
+      <div class="category">
+        <a href="/book">
+          <img src="/images/beach.png" class="round" alt="Beach" />
+          <h3>Beach</h3></a
+        >
+        <a href="/beach/beach" class="btn">View Details</a>
       </div>
-
-      <div class="category round">
-        <img src="/images/salda.png" alt="New York City" />
-        <div class="destination-info">
-          <h3>Lake Salda</h3>
-          <p>
-            Experience the energy of NYC with guided tours, shopping, and
-            Broadway shows.
-          </p>
-          <p><strong>From $899</strong></p>
-          <a href="/salda" class="btn">View Details</a>
-        </div>
+      <div class="category">
+        <a href="/book">
+          <img src="/images/city.png" class="round" alt="City" />
+          <h3>City</h3></a
+        >
+        <a href="/city/city" class="btn">View Details</a>
       </div>
-
-      <div class="category round">
-        <img src="/images/alps.png " alt="Swiss Alps" />
-        <div class="destination-info">
-          <h3>Swiss Alps</h3>
-          <p>
-            Discover breathtaking views and skiing adventures in the majestic
-            Alps.
-          </p>
-          <p><strong>From $1,299</strong></p>
-          <a href="/alps" class="btn">View Details</a>
-        </div>
+      <div class="category">
+        <a href="/book">
+          <img src="/images/mountain.png" class="round" alt="Mountain" />
+          <h3>Mountain</h3></a
+        >
+        <a href="/mountain/mountain" class="btn">View Details</a>
       </div>
     </section>
   </body>

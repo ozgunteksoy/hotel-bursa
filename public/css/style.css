@@ -40,33 +40,14 @@ body {
   z-index: 1;
 }
 
-/* Yazı içeriği görünür üst katmanda */
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 700px;
-}
-
-.hero-content h1 {
-  font-size: 3.5rem;
-  margin-bottom: 1rem;
-  line-height: 1.2;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
-}
-
-.hero-content p {
-  font-size: 1.3rem;
-  margin-bottom: 2rem;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
-}
-
 /* Menü */
 
 .navbar {
   position: absolute;
   top: 20px;
   right: 50px;
-  z-index: 3;
+  z-index: 1;
+  color: brown;
 }
 
 .navbar a {
@@ -91,19 +72,54 @@ body {
 }
 
 /* Hero başlık */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 100%;
+  height: 80px;
+}
+
+.bursaspor {
+  background-color: darkorange;
+}
+
+.bursaspor h1 {
+  word-spacing: 10px;
+  color: white;
+  padding: 0.4rem;
+}
+
+.bursaspor h1 span {
+  display: inline-block;
+  margin-left: 20px;
+}
+.hero-content p {
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+  max-width: 100%;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
 .hero-content h1 {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  color: green;
+  background-color: darkorange;
   font-size: 3.5rem;
   margin-bottom: 1rem;
+  padding: 0.4rem;
+  line-height: 1.2;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
 
 .hero-content h1 span {
-  color: #add8e6;
-}
-
-.hero-content p {
-  font-size: 1.2rem;
-  max-width: 500px;
-  margin-bottom: 2rem;
+  color: white;
+  word-spacing: 5px;
+  display: inline-block;
+  margin-left: 20px;
 }
 
 .btn {
@@ -208,7 +224,7 @@ body {
 
 /*Maldives*/
 .maldives {
-  background-image: url("images/maldives-header.png");
+  background-image: url("/images/maldives-header.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -257,7 +273,7 @@ body {
 
 /*Salda*/
 .salda {
-  background-image: url("images/salda-header.png");
+  background-image: url("/images/salda-header.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -276,7 +292,7 @@ body {
 
 /*Alps*/
 .alps {
-  background-image: url("images/alps-header.png");
+  background-image: url("/images/alps-header.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

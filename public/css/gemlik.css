@@ -1,0 +1,115 @@
+.text {
+  max-width: 600px;
+}
+
+/*BÜYÜK KUMLA*/
+.büyükkumla {
+  display: flex;
+  gap: 20px;
+  margin: 20px;
+}
+
+.büyükkumla img {
+  width: 300px;
+  border-radius: 10px;
+}
+
+.büyükkumla ul {
+  padding-left: 20px;
+}
+
+/*KÜÇÜK KUMLA*/
+.kücükkumla {
+  display: flex;
+  gap: 20px;
+  margin: 20px;
+}
+
+.kücükkumla img {
+  width: 300px;
+  border-radius: 10px;
+}
+
+.kücükkumla ul {
+  padding-left: 20px;
+}
+
+/*KUMSAZ*/
+.kumsaz {
+  display: flex;
+  gap: 20px;
+  margin: 20px;
+}
+
+.kumsaz img {
+  width: 300px;
+  border-radius: 10px;
+}
+
+.kumsaz ul {
+  padding-left: 20px;
+}
+
+/*GEMSAZ*/
+.gemsaz {
+  display: flex;
+  gap: 20px;
+  margin: 20px;
+}
+
+.gemsaz img {
+  width: 300px;
+  border-radius: 10px;
+}
+
+.gemsaz ul {
+  padding-left: 20px;
+}
+
+/*NARLI*/
+.narli {
+  display: flex;
+  gap: 20px;
+  margin: 20px;
+}
+
+.narli img {
+  width: 300px;
+  border-radius: 10px;
+}
+
+.narli ul {
+  padding-left: 20px;
+}
+
+/*KURŞUNLU KADINLAR*/
+.kursunlu_kadinlar {
+  display: flex;
+  gap: 20px;
+  margin: 20px;
+}
+
+.kursunlu_kadinlar img {
+  width: 300px;
+  border-radius: 10px;
+}
+
+.kursunlu_kadinlar ul {
+  padding-left: 20px;
+}
+
+/*KARACAALİ*/
+.karacaali {
+  display: flex;
+  gap: 20px;
+  margin: 20px;
+}
+
+.karacaali img {
+  width: 300px;
+  border-radius: 10px;
+}
+
+.karacaali ul {
+  padding-left: 20px;
+}

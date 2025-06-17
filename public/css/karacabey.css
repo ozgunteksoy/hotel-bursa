@@ -1,0 +1,51 @@
+.text {
+  max-width: 600px;
+}
+
+/*KURŞUNLU*/
+.kursunlu {
+  display: flex;
+  gap: 20px;
+  margin: 20px;
+}
+
+.kursunlu img {
+  width: 300px;
+  border-radius: 10px;
+}
+
+.kursunlu ul {
+  padding-left: 20px;
+}
+
+/*MALKARA*/
+.malkara {
+  display: flex;
+  gap: 20px;
+  margin: 20px;
+}
+
+.malkara img {
+  width: 300px;
+  border-radius: 10px;
+}
+
+.malkara ul {
+  padding-left: 20px;
+}
+
+/*YENİKÖY*/
+.yeniköy {
+  display: flex;
+  gap: 20px;
+  margin: 20px;
+}
+
+.yeniköy img {
+  width: 300px;
+  border-radius: 10px;
+}
+
+.yeniköy ul {
+  padding-left: 20px;
+}

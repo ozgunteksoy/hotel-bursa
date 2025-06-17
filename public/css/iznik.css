@@ -1,0 +1,67 @@
+.text {
+  max-width: 600px;
+}
+
+/*DARKA*/
+.darka {
+  display: flex;
+  gap: 20px;
+  margin: 20px;
+}
+
+.darka img {
+  width: 300px;
+  border-radius: 10px;
+}
+
+.darka ul {
+  padding-left: 20px;
+}
+
+/*GÖLLÜCE*/
+.golluce {
+  display: flex;
+  gap: 20px;
+  margin: 20px;
+}
+
+.golluce img {
+  width: 300px;
+  border-radius: 10px;
+}
+
+.golluce ul {
+  padding-left: 20px;
+}
+
+/*GÜNBATIMI*/
+.gunbatimi {
+  display: flex;
+  gap: 20px;
+  margin: 20px;
+}
+
+.gunbatimi img {
+  width: 300px;
+  border-radius: 10px;
+}
+
+.gunbatimi ul {
+  padding-left: 20px;
+}
+
+/*HALK*/
+.halk {
+  display: flex;
+  gap: 20px;
+  margin: 20px;
+}
+
+.halk img {
+  width: 300px;
+  border-radius: 10px;
+}
+
+.halk ul {
+  padding-left: 20px;
+}

@@ -8,6 +8,8 @@ const PORT = 5500;
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
+app.use(express.static(path.join(__dirname, "public")));
+
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -41,34 +43,159 @@ app.get("/", (req, res) => {
   res.render("index", { headerClass: "hero", activePage: "index" });
 });
 
+app.get("/beach/beach", (req, res) => {
+  res.render("beach/beach", {
+    headerClass: "alps",
+    activePage: "beach",
+    showTitle: true,
+  });
+});
+
+app.get("/beach/gemlik", (req, res) => {
+  res.render("beach/gemlik", {
+    headerClass: "alps",
+    activePage: "gemlik",
+    showTitle: true,
+  });
+});
+
+app.get("/beach/iznik", (req, res) => {
+  res.render("beach/iznik", {
+    headerClass: "alps",
+    activePage: "iznik",
+    showTitle: true,
+  });
+});
+
+app.get("/beach/karacabey", (req, res) => {
+  res.render("beach/karacabey", {
+    headerClass: "alps",
+    activePage: "karacabey",
+    showTitle: true,
+  });
+});
+
+app.get("/beach/mudanya", (req, res) => {
+  res.render("beach/mudanya", {
+    headerClass: "alps",
+    activePage: "Mudanya",
+    showTitle: true,
+  });
+});
+
+app.get("/city/city", (req, res) => {
+  res.render("city/city", {
+    headerClass: "alps",
+    activePage: "city",
+    showTitle: true,
+  });
+});
+
+app.get("/city/avm", (req, res) => {
+  res.render("city/avm", {
+    headerClass: "alps",
+    activePage: "avm",
+    showTitle: true,
+  });
+});
+
+app.get("/city/doga", (req, res) => {
+  res.render("city/doga", {
+    headerClass: "alps",
+    activePage: "Doga",
+    showTitle: true,
+  });
+});
+
+app.get("/city/muze", (req, res) => {
+  res.render("city/muze", {
+    headerClass: "alps",
+    activePage: "Muze",
+    showTitle: true,
+  });
+});
+
+app.get("/city/parklar", (req, res) => {
+  res.render("city/parklar", {
+    headerClass: "alps",
+    activePage: "Parklar",
+    showTitle: true,
+  });
+});
+
+app.get("/city/selaleler", (req, res) => {
+  res.render("city/selaleler", {
+    headerClass: "alps",
+    activePage: "Selaleler",
+    showTitle: true,
+  });
+});
+
+app.get("/city/tarih", (req, res) => {
+  res.render("city/tarih", {
+    headerClass: "alps",
+    activePage: "Tarih",
+    showTitle: true,
+  });
+});
+
+app.get("/city/mimari", (req, res) => {
+  res.render("city/mimari", {
+    headerClass: "alps",
+    activePage: "Mimari",
+    showTitle: true,
+  });
+});
+
+app.get("/city/din",(req,res)=>{
+  res.render("city/din",{
+    headerClass: "alps",
+    activePage: "Din",
+    showTitle: true,
+  })
+})
+
+app.get("/mountain/mountain", (req, res) => {
+  res.render("mountain/mountain", {
+    headerClass: "alps",
+    activePage: "mountain",
+    showTitle: true,
+  });
+});
+
 app.get("/tours", (req, res) => {
   res.render("tours", { headerClass: "hero", activePage: "tours" });
 });
 
 app.get("/destination", (req, res) => {
-  res.render("destination", { headerClass: "hero" });
+  res.render("destination", {
+    headerClass: "hero",
+    activePage: "destinations",
+    showTitle: true,
+    pageTitle: "Discover Your Next Destination",
+  });
 });
 
-app.get("/maldives", (req, res) => {
-  res.render("maldives", {
-    headerClass: "maldives",
-    activePage: "",
+app.get("/destinations/maldives", (req, res) => {
+  res.render("destinations/maldives", {
+    headerClass: "hero maldives",
+    activePage: "destinations",
     showTitle: true,
   });
 });
 
-app.get("/salda", (req, res) => {
-  res.render("salda", {
+app.get("/destinations/salda", (req, res) => {
+  res.render("destinations/salda", {
     headerClass: "salda",
-    activePage: "",
+    activePage: "destinations",
     showTitle: true,
   });
 });
 
-app.get("/alps", (req, res) => {
-  res.render("alps", {
+app.get("/destinations/alps", (req, res) => {
+  res.render("destinations/alps", {
     headerClass: "alps",
-    activePage: "",
+    activePage: "destinations",
     showTitle: true,
     pageTitle: "Alps",
   });
@@ -79,10 +206,12 @@ app.get("/contact", (req, res) => {
 });
 
 app.get("/book", (req, res) => {
-  res.render("book", { headerClass: "book" });
+  res.render("book", {
+    headerClass: "hero book",
+    activePage: "book",
+    showTitle: true,
+  });
 });
-
-app.use(express.static(path.join(__dirname, "public")));
 
 // ✉️ Mesaj gönderme
 app.post("/mesaj", async (req, res) => {
