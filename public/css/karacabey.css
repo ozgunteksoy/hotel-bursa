@@ -1,5 +1,7 @@
 .text {
-  max-width: 600px;
+  max-width: 100%;
+  border-style: solid;
+  padding-left: 10px;
 }
 
 /*KURŞUNLU*/
