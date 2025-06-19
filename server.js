@@ -3,6 +3,8 @@ const sql = require("mssql");
 const path = require("path");
 const app = express();
 const PORT = 5500;
+const nodemailer = require("nodemailer");
+const { name } = require("ejs");
 
 // EJS ayarları
 app.set("view engine", "ejs");
@@ -161,8 +163,8 @@ app.get("/mountain/mountain", (req, res) => {
   });
 });
 
-app.get("/tours", (req, res) => {
-  res.render("tours", { headerClass: "hero", activePage: "tours" });
+app.get("/book", (req, res) => {
+  res.render("book", { headerClass: "hero", activePage: "tours" });
 });
 
 app.get("/destination", (req, res) => {
@@ -203,14 +205,6 @@ app.get("/contact", (req, res) => {
   res.render("contact", { headerClass: "hero", activePage: "contact" });
 });
 
-app.get("/book", (req, res) => {
-  res.render("book", {
-    headerClass: "hero book",
-    activePage: "book",
-    showTitle: true,
-  });
-});
-
 //  Mesaj gönderme
 app.post("/mesaj", async (req, res) => {
   const { name, surname, email, message } = req.body;
@@ -238,8 +232,9 @@ app.post("/mesaj", async (req, res) => {
 });
 
 //  Rezervasyon
+const nodemailer = require("nodemailer");
+
 app.post("/book", async (req, res) => {
-  console.log("Gelen veri:", req.body);
   const { name, surname, mail, checkin, checkout, people, room_count } =
     req.body;
 
@@ -248,6 +243,7 @@ app.post("/book", async (req, res) => {
   }
 
   try {
+    // 1. VERİTABANINA KAYIT
     await pool
       .request()
       .input("name", sql.VarChar, name)
@@ -261,10 +257,62 @@ app.post("/book", async (req, res) => {
         VALUES (@name, @surname, @mail, @checkin, @checkout, @people, @room_count)
       `);
 
-    res.send("Rezervasyon başarıyla kaydedildi!");
+    // 2. MAİL GÖNDERİCİ AYARLARI
+    const transporter = nodemailer.createTransport({
+      service: "gmail", // Outlook kullanıyorsan değiştir
+      auth: {
+        user: "oteladresiniz@gmail.com", // HOTELSİNİZİN GMAIL ADRESİ
+        pass: "uygulama-şifresi", // 2 Adımlı doğrulamada oluşturulan uygulama şifresi
+      },
+    });
+
+    // 3. MAİL İÇERİĞİ
+    const mailOptions = {
+      from: '"Hotel Bursa" <oteladresiniz@gmail.com>',
+      to: mail,
+      subject: "Rezervasyon Onayınız – Hotel Bursa",
+      html: `
+    <div style="font-family: Arial, sans-serif; padding: 20px; color: #333;">
+      <h2 style="color: #006633;">Sayın ${name} ${surname},</h2>
+      <p>Rezervasyonunuz başarıyla alınmıştır. Aşağıda rezervasyon detaylarınızı bulabilirsiniz:</p>
+      <table style="border-collapse: collapse;">
+        <tr>
+          <td style="padding: 8px; font-weight: bold;">Giriş Tarihi:</td>
+          <td style="padding: 8px;">${checkin}</td>
+        </tr>
+        <tr>
+          <td style="padding: 8px; font-weight: bold;">Çıkış Tarihi:</td>
+          <td style="padding: 8px;">${checkout}</td>
+        </tr>
+        <tr>
+          <td style="padding: 8px; font-weight: bold;">Kişi Sayısı:</td>
+          <td style="padding: 8px;">${people}</td>
+        </tr>
+        <tr>
+          <td style="padding: 8px; font-weight: bold;">Oda Sayısı:</td>
+          <td style="padding: 8px;">${room_count}</td>
+        </tr>
+      </table>
+      <p style="margin-top: 20px;">
+        Sizi <strong>yeşilin ve tarihin buluştuğu Bursa’da</strong> ağırlamaktan büyük mutluluk duyacağız.
+      </p>
+      <p style="color: #888; font-size: 14px;">Hotel Bursa Rezervasyon Ekibi</p>
+    </div>
+  `,
+    };
+
+    // 4. GÖNDER
+    await transporter.sendMail(mailOptions);
+
+    // 5. YANIT
+    res.send(
+      `<script>alert("Rezervasyon başarıyla kaydedildi! E-posta gönderildi."); window.location.href = "/";</script>`
+    );
   } catch (error) {
-    console.error("❌ Rezervasyon hatası:", error);
-    res.status(500).send("Rezervasyon kaydedilemedi.");
+    console.error("❌ Rezervasyon/mail hatası:", error);
+    res
+      .status(500)
+      .send("Rezervasyon kaydedilemedi veya e-posta gönderilemedi.");
   }
 });
 
