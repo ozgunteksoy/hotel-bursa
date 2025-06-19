@@ -8,8 +8,6 @@ const PORT = 5500;
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-app.use(express.static(path.join(__dirname, "public")));
-
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -147,13 +145,13 @@ app.get("/city/mimari", (req, res) => {
   });
 });
 
-app.get("/city/din",(req,res)=>{
-  res.render("city/din",{
+app.get("/city/din", (req, res) => {
+  res.render("city/din", {
     headerClass: "alps",
     activePage: "Din",
     showTitle: true,
-  })
-})
+  });
+});
 
 app.get("/mountain/mountain", (req, res) => {
   res.render("mountain/mountain", {
@@ -213,7 +211,7 @@ app.get("/book", (req, res) => {
   });
 });
 
-// ✉️ Mesaj gönderme
+//  Mesaj gönderme
 app.post("/mesaj", async (req, res) => {
   const { name, surname, email, message } = req.body;
 
@@ -239,9 +237,11 @@ app.post("/mesaj", async (req, res) => {
   }
 });
 
-// 🏨 Rezervasyon
-app.post("/rezervasyon", async (req, res) => {
-  const { name, surname, checkin, checkout, people, room_count } = req.body;
+//  Rezervasyon
+app.post("/book", async (req, res) => {
+  console.log("Gelen veri:", req.body);
+  const { name, surname, mail, checkin, checkout, people, room_count } =
+    req.body;
 
   if (!pool) {
     return res.status(500).send("Veritabanı bağlantısı mevcut değil.");
@@ -252,12 +252,13 @@ app.post("/rezervasyon", async (req, res) => {
       .request()
       .input("name", sql.VarChar, name)
       .input("surname", sql.VarChar, surname)
+      .input("mail", sql.VarChar, mail)
       .input("checkin", sql.Date, checkin)
       .input("checkout", sql.Date, checkout)
       .input("people", sql.Int, people)
       .input("room_count", sql.Int, room_count).query(`
-        INSERT INTO Rezervasyonlar (name, surname, checkin, checkout, people, room_count)
-        VALUES (@name, @surname, @checkin, @checkout, @people, @room_count)
+        INSERT INTO Rezervasyonlar (name, surname, mail, checkin, checkout, people, room_count)
+        VALUES (@name, @surname, @mail, @checkin, @checkout, @people, @room_count)
       `);
 
     res.send("Rezervasyon başarıyla kaydedildi!");
@@ -266,6 +267,8 @@ app.post("/rezervasyon", async (req, res) => {
     res.status(500).send("Rezervasyon kaydedilemedi.");
   }
 });
+
+app.use(express.static(path.join(__dirname, "public")));
 
 // Sunucuyu başlat
 app.listen(PORT, () => {

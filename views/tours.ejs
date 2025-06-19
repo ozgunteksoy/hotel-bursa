@@ -3,18 +3,138 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Our Tours</title>
+    <title>Book in Our Hotel</title>
     <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/tours.css" />
   </head>
   <body>
     <%- include("partials/header", { headerClass:"hero", activePage:"Tours",
     showTitle:true }) %>
     <div class="hero-content">
-      <h1>Our Tours</h1>
+      <h1>Make a Reservation</h1>
       <p>
         Explore beach, city and mountain destinations with our carefully curated
         packages.
       </p>
+
+      <form id="rezervasyon" action="/book" method="POST">
+        <div class="form-row">
+          <label
+            >Name:
+            <input type="text" name="name" placeholder="Name" required />
+          </label>
+          <label
+            >Surname:
+            <input type="text" name="surname" placeholder="Surname" required />
+          </label>
+          <label
+            >Mail:
+            <input
+              type="email"
+              name="mail"
+              placeholder="Email"
+              style="height: 32px"
+              required
+            />
+          </label>
+          <label>
+            Check-in-Date
+            <input type="date" name="checkin" required />
+          </label>
+          <label>
+            Chek-out-Date
+            <input type="date" name="checkout" required />
+          </label>
+          <label for="people">
+            People
+            <select name="people" id="people">
+              <option value="1" selected>1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </label>
+          <label>
+            Room Number
+            <select class="room_count" name="room_count" id="room_count">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </label>
+        </div>
+        <button type="submit">Book</button>
+      </form>
     </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("rezervasyon");
+        const name = form.name;
+        const surname = form.surname;
+        const mail = form.mail;
+        const checkin = form.checkin;
+        const checkout = form.checkout;
+        const people = form.people;
+        const room_count = form.room_count;
+
+        // Check-in değiştiğinde çıkış tarihi minimumu güncelle
+        checkin.addEventListener("change", () => {
+          checkout.min = checkin.value;
+          // Eğer çıkış tarihi daha erkense, check-in'e eşitle
+          if (!checkout.value || checkout.value < checkin.value) {
+            checkout.value = checkin.value;
+          }
+        });
+
+        // Form gönderme işlemi
+        form.addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          const people = form.people.value;
+
+          if (!checkin.value || !checkout.value || !people) {
+            alert("Tüm alanları doldurunuz.");
+            return;
+          }
+
+          if (checkout.value < checkin.value) {
+            alert("Çıkış tarihi giriş tarihinden önce olamaz.");
+            return;
+          }
+
+          // AJAX ile POST isteği gönder
+          try {
+            const response = await fetch("/book", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                name: name.value,
+                surname: surname.value,
+                mail: mail.value,
+                checkin: checkin.value,
+                checkout: checkout.value,
+                people: people.value,
+                room_count: room_count.value,
+              }),
+            });
+
+            const result = await response.text();
+            alert(result);
+            form.reset(); // Başarılıysa formu sıfırla
+          } catch (err) {
+            alert("Rezervasyon sırasında bir hata oluştu.");
+            console.error(err);
+          }
+        });
+      });
+    </script>
   </body>
 </html>

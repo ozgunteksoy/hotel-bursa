@@ -1,0 +1,58 @@
+/*book.html*/
+.book {
+  margin: 20px 10px;
+}
+.form-row {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.form-row label {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+input[type="date"] {
+  padding: 6px 8px;
+  font-size: 14px;
+  width: 150px;
+}
+
+input[type="text"] {
+  padding: 7px 8px;
+  font-size: 14px;
+  width: 150px;
+}
+
+#people {
+  padding: 7px 8px;
+  font-size: 14px;
+  width: 150px;
+}
+
+.room_count {
+  padding: 7px 8px;
+  font-size: 14px;
+  width: 150px;
+}
+
+button[type="submit"] {
+  padding: 10px 30px;
+  font-size: 14px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: sticky;
+  margin-top: 20px;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}

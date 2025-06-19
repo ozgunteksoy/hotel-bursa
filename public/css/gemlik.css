@@ -4,6 +4,13 @@
   padding-left: 10px;
 }
 
+img.oval {
+  width: 300px;
+  height: 200px;
+  border-radius: 50%; /* elips görünüm için */
+  object-fit: cover;
+}
+
 /*BÜYÜK KUMLA*/
 .büyükkumla {
   display: flex;
